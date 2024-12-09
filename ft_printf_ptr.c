@@ -38,13 +38,23 @@ static int	convert_ptr_to_hex(void *ptr, char *buffer)
 
 int	ft_printf_ptr(void *ptr)
 {
-	char	buffer[18];
+	char	buffer[16];
 	int		len;
+	int		i;
 
+	if (ptr == NULL)
+	{
+		if(write(1, "(nil)", 5) == -1);
+		return (5);
+	}
 	len = convert_ptr_to_hex(ptr, buffer);
 	ft_putchar_fd('0', 1);
 	ft_putchar_fd('x', 1);
-	while (--len >= 0)
-		ft_putchar_fd(buffer[len], 1);
+	i = len - 1;
+	while (i >= 0)
+	{
+		ft_putchar_fd(buffer[i], 1);
+		i--;
+	}
 	return (len + 2);
 }
