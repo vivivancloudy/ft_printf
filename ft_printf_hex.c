@@ -35,13 +35,15 @@ int	ft_printf_hex(unsigned int n, int uppercase)
 	const char	*hex_digits;
 	char		buffer[9];
 	int			len;
+	int			result;
 
 	if (uppercase)
 		hex_digits = "0123456789ABCDEF";
 	else
 		hex_digits = "0123456789abcdef";
 	len = convert_to_hex(n, buffer, hex_digits);
+	result = len;
 	while (--len >= 0)
 		ft_putchar_fd(buffer[len], 1);
-	return (len);
+	return (result);
 }
