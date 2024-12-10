@@ -44,7 +44,7 @@ int	ft_printf_ptr(void *ptr)
 
 	if (ptr == NULL)
 	{
-		if(write(1, "(nil)", 5) == -1);
+		write(1, "(nil)", 5);
 		return (5);
 	}
 	len = convert_ptr_to_hex(ptr, buffer);
