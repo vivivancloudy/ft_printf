@@ -17,17 +17,17 @@
 #include <stdlib.h>
 # include <unistd.h>
 
-int		ft_printf(const char *input, ...);
-int 	ft_printf_ptr(void *ptr);
-int 	ft_printf_unsigned(unsigned int nb);
-int 	ft_printf_str(char *str);
-int 	ft_printf_int(int n);
-int 	ft_printf_char(char c);
+int		  ft_printf(const char *input, ...);
+int 	  ft_printf_ptr(void *ptr);
+int 	  ft_printf_unsigned(unsigned int nb);
+int 	  ft_printf_str(char *str);
+int 	  ft_printf_int(int n);
+int 	  ft_printf_char(char c);
 int     ft_printf_percent(void);
-int 	ft_printf_hex(unsigned int n, int uppercase);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
+int 	  ft_printf_hex(unsigned int n, int uppercase);
+int  	  ft_putchar_fd(char c, int fd);
+int  	  ft_putstr_fd(char *s, int fd);
 size_t	ft_strlen(const char *s);
-char	*ft_itoa(int n);
+char	  *ft_itoa(int n);
 
 #endif
