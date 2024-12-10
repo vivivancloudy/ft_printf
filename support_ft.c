@@ -6,22 +6,35 @@
 /*   By: thdinh <thdinh@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 12:21:26 by thdinh            #+#    #+#             */
-/*   Updated: 2024/12/09 15:42:15 by thdinh           ###   ########.fr       */
+/*   Updated: 2024/12/10 14:57:58 by thdinh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	if (write(fd, &c, 1) == -1)
+		return (-1);
+	return (1);
 }
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
-	if (s)
+	int	count;
+	int	result;
+
+	if (!s)
+		return (0);
+	count = 0;
 	while (*s)
-		write(fd, s++, 1);
+	{
+		result = write(fd, s++, 1);
+		if (result == -1)
+			return (-1);
+		count += result;
+	}
+	return (count);
 }
 
 size_t	ft_strlen(const char *s)
