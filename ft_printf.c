@@ -33,35 +33,48 @@ static int	type(char input, va_list args)
 	return (0);
 }
 
-int	ft_printf(const char *format, ...)
+static int	handle_format(const char *format, va_list args)
 {
-	va_list	args;
 	int		count;
 	int		i;
+	int		result;
 
 	count = 0;
-	i = 0;
-	va_start(args, format);
-	while (format[i] != '\0')
+	i = -1;
+	while (format[++i] != '\0')
 	{
 		if (format[i] == '%')
 		{
 			i++;
-			count += type(format[i], args);
+			result = type(format[i], args);
+			if (result == -1)
+				return (-1);
+			count += result;
 		}
 		else
 		{
-			ft_putchar_fd(format[i], 1);
+			if (ft_putchar_fd(format[i], 1) == -1)
+				return (-1);
 			count++;
 		}
-		i++;
 	}
+	return (count);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	va_list	args;
+	int		count;
+
+	va_start(args, format);
+	count = handle_format(format, args);
 	va_end(args);
 	return (count);
 }
 
-/*int	main(void)
-{
-	ft_printf("Hello, %s! Your score is %d and your pointer is %p.\n", "Alice", 42, &main);
-	return (0);
-}*/
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	void *ptr = NULL;
+// 	ft_printf("%p\n", ptr);
+// }

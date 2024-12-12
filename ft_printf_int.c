@@ -12,16 +12,16 @@
 
 #include "ft_printf.h"
 
-int ft_printf_int(int n)
+int	ft_printf_int(int n)
 {
-    int len;
-    char *str;
+	int		len;
+	char	*str;
 
-    str = ft_itoa(n);
-    if (!str)
-        return (-1);
-    ft_putstr_fd(str, 1);
-    len = ft_strlen(str);
-    free(str);
-    return (len);
+	str = ft_itoa(n);
+	if (!str)
+		return (-1);
+	ft_putstr_fd(str, 1);
+	len = ft_strlen(str);
+	free(str);
+	return (len);
 }

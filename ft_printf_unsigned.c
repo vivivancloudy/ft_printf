@@ -21,8 +21,8 @@ static void	printout(unsigned int nb)
 
 int	ft_printf_unsigned(unsigned int nb)
 {
-	int	            i;
-    unsigned int    temp;
+	int				i;
+	unsigned int	temp;
 
 	if (nb == 0)
 	{
@@ -30,8 +30,8 @@ int	ft_printf_unsigned(unsigned int nb)
 		return (1);
 	}
 	printout(nb);
-    i = 0;
-    temp = nb;
+	i = 0;
+	temp = nb;
 	while (temp > 0)
 	{
 		temp = temp / 10;

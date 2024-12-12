@@ -8,6 +8,7 @@ SRCS = ft_printf.c \
 	ft_printf_unsigned.c \
 	ft_itoa.c \
 	test.c \
+	test_write.c \
 	support_ft.c
 
 OBJS = ${SRCS:.c=.o}

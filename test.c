@@ -34,5 +34,7 @@ int	main(void)
 	len = ft_printf("Percentage test: %%\n");
 	printf("ft_printf returned: %d\n", len);
 	printf("Original printf test: %d\n", 42);
+	void *ptr = NULL;
+	ft_printf("%p\n", ptr);
 	return (0);
 }
